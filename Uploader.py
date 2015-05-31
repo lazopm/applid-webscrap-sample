@@ -2,7 +2,7 @@ import mysql.connector
 import json
 import time
 def checkrows():
-    cnx = mysql.connector.connect(user='seerk', password='lolazo',
+    cnx = mysql.connector.connect(user='seerk', password='',
                               host='mysql.server',
                               database='seerk$rutdata')
     cursor = cnx.cursor()
