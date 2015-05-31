@@ -16,7 +16,7 @@ def checkrows():
     cnx.close()
     return array
 def getruts(start, end):
-    cnx = mysql.connector.connect(user='seerk', password='lolazo',
+    cnx = mysql.connector.connect(user='seerk', password='',
                               host='mysql.server',
                               database='seerk$rutdata')
     cursor = cnx.cursor()
@@ -31,7 +31,7 @@ def getruts(start, end):
 def checkrut(rut):
     for n in range(100):
         try:
-            cnx = mysql.connector.connect(user='seerk', password='lolazo',
+            cnx = mysql.connector.connect(user='seerk', password='',
                                       host='mysql.server',
                                       database='seerk$rutdata')
             cursor = cnx.cursor()
@@ -54,7 +54,7 @@ def updata(rut, data):
     json_data=json.dumps(data)
     for _ in range(5):
         try:
-            cnx = mysql.connector.connect(user='seerk', password='lolazo',
+            cnx = mysql.connector.connect(user='seerk', password='',
                                           host='mysql.server',
                                           database='seerk$rutdata')
             cursor = cnx.cursor()
@@ -77,7 +77,7 @@ def updata(rut, data):
             pass
 
 def uperror(rut, err):
-    cnx = mysql.connector.connect(user='seerk', password='lolazo',
+    cnx = mysql.connector.connect(user='seerk', password='',
                                   host='mysql.server',
                                   database='seerk$rutdata')
     cursor = cnx.cursor()
