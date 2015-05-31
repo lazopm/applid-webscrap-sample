@@ -1,0 +1,47 @@
+<!doctype html>
+<div class=page style="width:100%;text-align:center">
+    <div style="display:inline-block">
+    {% if data=="false" %}
+        <h1 style="margin-top:0;font-family: 'Garamond', 'Georgia', serif;">Buscar Rut</h1>
+    {% endif %}
+        <title>Buscar Rut</title>
+        <form method="get">
+        <b>RUT:</b> <input type="text" name="rut"> <input type="submit" value="Buscar">
+        </form>
+    </div>
+    {% if data!="false" %}
+        <hr>
+        <div style="display:inline-block;text-align:left">
+            {% if data==1 %}
+            <p>Rut <b>{{rut}}</b> no existe en la base de datos.<p>
+            {% else %}
+                <p><b>Nombre:</b><br>{{ data.nombre }}</p>
+                <p><b>RUT:</b><br>{{ rut }}</p>
+                <p><b>Autorizado para declarar y pagar sus impuestos en moneda extranjera: </b>{{ data.monedaex }}</p>
+                <p><b>Pequena o mediana empresa: </b>{{ data.pyme }}</p>
+                <b>Actividades:</b>
+                {% if data.actividades!=[] %}
+                    <table border="1">
+                    <tr><th>Actividad</th><th>Categoria</th><th>Codigo</th><th>Afecta IVA</th></tr>
+                    {% for actividad in data.actividades %}
+                        <tr><td>{{actividad.act}}</td><td>{{actividad.cat}}</td><td>{{actividad.cod}}</td><td>{{actividad.iva}}</td></tr>
+                    {% endfor %}
+                    </table>
+                {% else %}
+                    <br>No hay actividades registradas<br>
+                {% endif %}
+                <br><b>Documentos:</b>
+                {% if data.documentos!=[] %}
+                    <table border="1">
+                        <tr><th>Documento</th><th>Ultimo timbraje</th></tr>
+                        {% for documento in data.documentos %}
+                            <tr><td>{{documento.doc}}</td><td>{{documento.tim}}</td></tr>
+                        {% endfor %}
+                    </table>
+                {% else %}
+                    <br>No hay documentos registrados<br>
+                {% endif %}
+            {% endif %}
+        </div>
+    {% endif %}
+</div>
