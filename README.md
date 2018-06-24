@@ -1,4 +1,4 @@
-# Wbscrap Sample
+# Web Scraping Sample
 
 A script and tools to scrape a whole country's population data from a web service and put them in a database.  
 Threaded to make the ~19 million records faster to download.  
